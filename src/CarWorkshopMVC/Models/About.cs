@@ -1,4 +1,4 @@
-﻿namespace CarWorkshop.MVCv2.Models
+﻿namespace CarWorkshopMVC.Models
 {
     public class About
     {

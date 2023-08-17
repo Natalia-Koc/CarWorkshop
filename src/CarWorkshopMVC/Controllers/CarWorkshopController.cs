@@ -6,7 +6,7 @@ using CarWorkshop.Application.CarWorkshop;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using FluentValidation;
 
-namespace CarWorkshop.MVCv2.Controllers
+namespace CarWorkshopMVC.Controllers
 {
     public class CarWorkshopController : Controller
     {
