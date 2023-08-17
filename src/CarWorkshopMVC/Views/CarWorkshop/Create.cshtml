@@ -1,0 +1,61 @@
+﻿@using CarWorkshop.Application.CarWorkshop;
+
+@model CarWorkshopDto
+
+<h1>Car Workshop Create</h1>
+<p>:)</p>
+
+<hr/>
+
+<div class="row">
+    <div class="col-md-4">
+        <form action="/CarWorkshop/Create" method="post">
+            <div class="form-group mb-3">
+                <label class="control-label" asp-for="Name">Name</label>
+                <input class="form-control" type="text" asp-for="Name" />
+                <span asp-validation-for="Name"  class="text-danger" />
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+            <div class="form-group mb-3">
+                <label class="control-label" asp-for="Description">Description</label>
+                <input class="form-control" type="text" asp-for="Description" />
+                <span asp-validation-for="Description" class="text-danger" />
+            </div>
+            <div class="form-group mb-3">
+                <label class="control-label" asp-for="About">About</label>
+                <input class="form-control" type="text" asp-for="About" />
+                <span asp-validation-for="About" class="text-danger" />
+            </div>
+            <div class="form-group mb-3">
+                <label class="control-label" asp-for="PhoneNumber">PhoneNumber</label>
+                <input class="form-control" type="text" asp-for="PhoneNumber" />
+                <span asp-validation-for="PhoneNumber" class="text-danger" />
+            </div>
+            <div class="form-group mb-3">
+                <label class="control-label" asp-for="Street">Street</label>
+                <input class="form-control" type="text" asp-for="Street" />
+                <span asp-validation-for="Street" class="text-danger" />
+            </div>
+            <div class="form-group mb-3">
+                <label class="control-label" asp-for="City">City</label>
+                <input class="form-control" type="text" asp-for="City" />
+                <span asp-validation-for="City" class="text-danger" />
+            </div>
+            <div class="form-group mb-3">
+                <label class="control-label" asp-for="PostalCode">PostalCode</label>
+                <input class="form-control" type="text" asp-for="PostalCode" />
+                <span asp-validation-for="PostalCode" class="text-danger" />
+            </div>
+            <div class="form-group mb-3">
+                <input class="btn btn-primary" type="submit" value="Create"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

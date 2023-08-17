@@ -6,4 +6,19 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CarWorkshop.Application\CarWorkshop.Application.csproj" />
+    <ProjectReference Include="..\CarWorkshop.Domain\CarWorkshop.Domain.csproj" />
+    <ProjectReference Include="..\CarWorkshop.Infrastructure\CarWorkshop.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
