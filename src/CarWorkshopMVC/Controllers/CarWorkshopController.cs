@@ -7,6 +7,7 @@ using FluentValidation;
 using MediatR;
 using CarWorkshop.Application.CarWorkshop.Queries.GetAllCarWorkshop;
 using CarWorkshop.Application.CarWorkshop.Commands.CreateCarWorkShop;
+using CarWorkshop.Application.CarWorkshop.Queries.GetCarWorkshopByEncodedName;
 
 namespace CarWorkshopMVC.Controllers
 {
@@ -39,6 +40,13 @@ namespace CarWorkshopMVC.Controllers
             }
             await _mediator.Send(command);
             return RedirectToAction(nameof(Index));
+        }
+
+        [Route("CarWorkshop/{encodedName}/Details")]
+        public async Task<IActionResult> Details(string encodedName)
+        {
+            var carWorkshopDto = await _mediator.Send(new GetCarWorkshopByEncodedNameQuery(encodedName));
+            return View(carWorkshopDto);
         }
     }
 }
