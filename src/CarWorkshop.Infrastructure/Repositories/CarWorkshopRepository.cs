@@ -32,5 +32,7 @@ namespace CarWorkshop.Infrastructure.Repositories
 
         public async Task<IEnumerable<Domain.Entities.CarWorkshop>> GetAll()
             => await _dbContext.CarWorkshops.ToListAsync();
+
+        public async Task Commit() => await _dbContext.SaveChangesAsync();
     }
 }

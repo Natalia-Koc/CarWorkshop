@@ -8,6 +8,7 @@ using MediatR;
 using CarWorkshop.Application.CarWorkshop.Queries.GetAllCarWorkshop;
 using CarWorkshop.Application.CarWorkshop.Commands.CreateCarWorkShop;
 using CarWorkshop.Application.CarWorkshop.Queries.GetCarWorkshopByEncodedName;
+using CarWorkshop.Application.CarWorkshop.Commands.EditCarWorkShop;
 
 namespace CarWorkshopMVC.Controllers
 {
@@ -47,6 +48,25 @@ namespace CarWorkshopMVC.Controllers
         {
             var carWorkshopDto = await _mediator.Send(new GetCarWorkshopByEncodedNameQuery(encodedName));
             return View(carWorkshopDto);
+        }
+
+        [Route("CarWorkshop/{encodedName}/Edit")]
+        public async Task<IActionResult> Edit(string encodedName)
+        {
+            var carWorkshopDto = await _mediator.Send(new GetCarWorkshopByEncodedNameQuery(encodedName));
+            return View(carWorkshopDto);
+        }
+
+        [HttpPost]
+        [Route("CarWorkshop/{encodedName}/Edit")]
+        public async Task<IActionResult> Edit(EditCarWorkshopCommand command)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(command);
+            }
+            await _mediator.Send(command);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
