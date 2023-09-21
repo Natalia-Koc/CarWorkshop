@@ -1,6 +1,6 @@
 ﻿@{
-    var urlControlAction = ViewContext.RouteData.Values["Action"]!.ToString();
-    var urlControlController = ViewContext.RouteData.Values["Controller"]!.ToString();
+    var urlControlAction = ViewContext.RouteData.Values["Action"]?.ToString();
+    var urlControlController = ViewContext.RouteData.Values["Controller"]?.ToString();
 }
 
 <!DOCTYPE html>
@@ -37,6 +37,7 @@
                             <a class="nav-link text-dark @(urlControlController == "CarWorkshop" && urlControlAction == "Index" ? "active" : "")" asp-area="" asp-controller="CarWorkshop" asp-action="Index">Car Workshop</a>
                         </li>
                     </ul>
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
